@@ -14,6 +14,7 @@ jobs:
         # badly_formatted.ts はフォーマットが崩れているコードの例として用意しているので、チェック対象から外す
         run: deno fmt --check --ignore=badly_formatted.ts
       - name: deno lint
-        run: deno lint
+        # lint.ts はリントエラーを意図的に発生させているコードなので、チェック対象から外す
+        run: deno lint --ignore=lint.ts
       - name: deno test
         run: deno test --allow-net
