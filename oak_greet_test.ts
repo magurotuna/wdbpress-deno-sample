@@ -8,7 +8,7 @@ Deno.test(
   async () => {
     const request = await superoak(app);
     await request.get("/greet").expect(200).expect("Hello anonymous!");
-  }
+  },
 );
 
 Deno.test(
@@ -16,7 +16,7 @@ Deno.test(
   async () => {
     const request = await superoak(app);
     await request.get("/greet?name=webdb").expect(200).expect("Hello webdb!");
-  }
+  },
 );
 
 Deno.test(
@@ -24,7 +24,7 @@ Deno.test(
   async () => {
     const request = await superoak(app);
     await request.get("/greet?name=webdb").expect(200).expect("Hello webdb!");
-  }
+  },
 );
 
 Deno.test(`GET / に対して、ステータスコード404が返ってくること`, async () => {
@@ -37,7 +37,7 @@ Deno.test(
   async () => {
     const request = await superoak(app);
     await request.get("/greet/foo").expect(404);
-  }
+  },
 );
 
 Deno.test(
@@ -45,5 +45,5 @@ Deno.test(
   async () => {
     const request = await superoak(app);
     await request.post("/greet").expect(404);
-  }
+  },
 );
