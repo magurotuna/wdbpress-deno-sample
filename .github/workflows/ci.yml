@@ -1,0 +1,18 @@
+name: ci
+on: push
+jobs:
+  deno:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out repository
+        uses: actions/checkout@v2
+      - name: setup deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: "1.12.1"
+      - name: deno fmt
+        run: deno fmt --check
+      - name: deno lint
+        run: deno lint
+      - name: deno test
+        run: deno test --allow-net
